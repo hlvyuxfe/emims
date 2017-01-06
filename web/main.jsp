@@ -38,7 +38,7 @@ $(function()
     var PlanedMaintain=
             [
                 {text : "维修计划制定", attributes : {url : "Planedmaintain/PlanSubmit.jsp"}},
-                {text : "维修计划查询与审核", attributes : {url : "PlanedMaintain/PlanSubmit.jsp"}},
+                {text : "维修计划查询与审核", attributes : {url : "Planedmaintain/PlanCheck.jsp"}},
                 {text : "部门计划管理",
                     state : "closed",
                     children : [{text : "电气部门计划管理", attributes : {url : "PlanedMaintain/PlanSubmit.jsp"}},
@@ -48,7 +48,7 @@ $(function()
                 },
                 {text : "任务会签", attributes : {url : "PlanedMaintain/PlanSubmit.jsp"}},
                 {text : "执行计划查询", attributes : {url : "PlanedMaintain/PlanSubmit.jsp"}},
-                {text : "质检单查询", attributes : {url : "PlanedMaintain/PlanSubmit.jsp"}},
+                {text : "质检单查询", attributes : {url : "PlanedMaintain/PlanSubmit.jsp"}}
             ];
 
     $('#PlanedMaintain').tree({
@@ -178,7 +178,7 @@ function bindTabMenuEvent() {  //zjt
             <table style="font-family:Microsoft YaHei;font-size: 10px;border-bottom:0px solid black;margin:0 auto">
                 <tr>
                     <td>&nbsp;</td>
-                    <td style="color:#6C6C6C;background-size:14px;font-size: 25px;padding-right:350px">设备信息化维修管理系统</td>
+                    <td style="color:#6C6C6C;background-size:14px;font-size: 25px;margin:0 auto">设备信息化维修管理系统</td>
                     <td>&nbsp;</td>
                     <td><div class="datagrid-btn-separator1" id="sep5"></div></td>
                     <td>&nbsp;</td>
