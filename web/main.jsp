@@ -38,7 +38,17 @@ $(function()
     var PlanedMaintain=
             [
                 {text : "维修计划制定", attributes : {url : "Planedmaintain/PlanSubmit.jsp"}},
-                {text : "维修计划查询与审核", attributes : {url : "PlanedMaintain/PlanSubmit.jsp"}}
+                {text : "维修计划查询与审核", attributes : {url : "PlanedMaintain/PlanSubmit.jsp"}},
+                {text : "部门计划管理",
+                    state : "closed",
+                    children : [{text : "电气部门计划管理", attributes : {url : "PlanedMaintain/PlanSubmit.jsp"}},
+                                {text : "机械部门计划管理", attributes : {url : "PlanedMaintain/PlanSubmit.jsp"}},
+                                {text : "采购部门计划管理", attributes : {url : "PlanedMaintain/PlanSubmit.jsp"}}
+                    ]
+                },
+                {text : "任务会签", attributes : {url : "PlanedMaintain/PlanSubmit.jsp"}},
+                {text : "执行计划查询", attributes : {url : "PlanedMaintain/PlanSubmit.jsp"}},
+                {text : "质检单查询", attributes : {url : "PlanedMaintain/PlanSubmit.jsp"}},
             ];
 
     $('#PlanedMaintain').tree({
@@ -163,20 +173,16 @@ function bindTabMenuEvent() {  //zjt
 
     <div id="northPanel" class="easyui-panel"
          data-options="region:'north'"
-         style="height: 40px;padding:2px">
-        <div style="position:absolute; right:5px; bottom:5px;top:4px">
-            <table style="font-family:Microsoft YaHei;font-size: 12px;border-bottom:0px solid black;margin:0 auto">
+         style="height: 50px;padding:5px">
+        <div style="position:absolute; right:5px; bottom:5px;top:5px">
+            <table style="font-family:Microsoft YaHei;font-size: 10px;border-bottom:0px solid black;margin:0 auto">
                 <tr>
                     <td>&nbsp;</td>
-                    <td style="color:#6C6C6C;background-size:14px;font-size: 20px;padding-right:350px">设备信息化维修管理系统</td>
+                    <td style="color:#6C6C6C;background-size:14px;font-size: 25px;padding-right:350px">设备信息化维修管理系统</td>
                     <td>&nbsp;</td>
                     <td><div class="datagrid-btn-separator1" id="sep5"></div></td>
                     <td>&nbsp;</td>
                     <td style="color:#6C6C6C; background:url('img/center.png') no-repeat left;background-size:14px;padding-left:20px">欢迎您：管理员</td>
-                    <td>&nbsp;</td>
-                    <td><div class="datagrid-btn-separator1" id="sep5"></div></td>
-                    <td>&nbsp;</td>
-                    <td style="color:#6C6C6C; background:url('img/time.png') no-repeat left;background-size:15px;padding-left:20px" id ="count"></td>
                     <td>&nbsp;</td>
                     <td><div class="datagrid-btn-separator1" id="sep5"></div></td>
                     <td style="">
@@ -197,8 +203,17 @@ function bindTabMenuEvent() {  //zjt
             <div title="系统菜单">
                 <ul id="SystemManager"></ul>
             </div>
+            <div title="故障性维修维修">
+                <ul id="faultyMaintain"></ul>
+            </div>
             <div title="计划性维修">
                 <ul id="PlanedMaintain"></ul>
+            </div>
+            <div title="设备维修资料管理">
+                <ul id="MaintainDataManager"></ul>
+            </div>
+            <div title="备件管理">
+                <ul id="ReplacementManager"></ul>
             </div>
         </div>
 
