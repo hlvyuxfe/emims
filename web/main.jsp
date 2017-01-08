@@ -37,8 +37,8 @@ $(function()
 
     var PlanedMaintain=
             [
-                {text : "维修计划制定", attributes : {url : "Planedmaintain/PlanSubmit.jsp"}},
-                {text : "维修计划查询与审核", attributes : {url : "Planedmaintain/PlanCheck.jsp"}},
+                {text : "维修计划制定", attributes : {url : "PlanedMaintain/PlanSubmit.jsp"}},
+                {text : "维修计划查询与审核", attributes : {url : "PlanedMaintain/PlanCheck.jsp"}},
                 {text : "部门计划管理",
                     state : "closed",
                     children : [{text : "电气部门计划管理", attributes : {url : "PlanedMaintain/PlanSubmit.jsp"}},
