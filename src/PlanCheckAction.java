@@ -1,6 +1,7 @@
 import com.opensymphony.xwork2.ActionContext;
-import org.apache.struts2.ServletActionContext;
 import net.sf.json.JSONObject;
+import org.apache.struts2.ServletActionContext;
+
 import javax.servlet.http.HttpServletRequest;
 
 /**
@@ -16,6 +17,10 @@ public class PlanCheckAction {
     HttpServletRequest request = ServletActionContext.getRequest();//获取Request对象
 
     public void listInfo(){
+        int intPage=1;
+        int row=5;
+        int begin=1;
+        int end=5;
 
     }
 }
