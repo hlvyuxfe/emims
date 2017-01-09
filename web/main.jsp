@@ -22,8 +22,13 @@ $(function()
 {
     var SystemManagerTreeData=
             [
-                {
-                    text : "组织机构管理", attributes : {url : "SystemManager/Organization.jsp"}
+                {text : "组织机构管理", attributes : {url : "SystemManager/Organization.jsp"}},
+                {text : "系统用户管理",
+                    state : "closed",
+                    children : [{text : "增加用户", attributes : {url : "PlanedMaintain/PlanSubmit.jsp"}},
+                        {text : "删除用户", attributes : {url : "PlanedMaintain/PlanSubmit.jsp"}},
+                        {text : "更新用户", attributes : {url : "PlanedMaintain/PlanSubmit.jsp"}}
+                    ]
                 }
             ];
     $('#SystemManager').tree({
@@ -35,9 +40,25 @@ $(function()
         }
     });
 
+    var InformationManager=
+            [
+                {text : "组织机构管理", attributes : {url : "SystemManager/Organization.jsp"}},
+                {text : "信息公告栏管理", attributes : {url : "SystemManager/Organization.jsp"}},
+                {text : "设备台账维护", attributes : {url : "InformationManager/EquipmentInformation.jsp"}},
+    ];
+
+    $('#InformationManager').tree({
+        data:InformationManager,
+        lines:true,
+        onClick:function (node) {
+            $(this).tree('toggle',node.target);
+            Open(node.text,node.attributes.url);
+        }
+    });
+
     var PlanedMaintain=
             [
-                {text : "维修计划制定", attributes : {url : "PlanedMaintain/PlanSubmit.jsp"}},
+                {text : "维修立项", attributes : {url : "PlanedMaintain/PlanSubmit.jsp"}},
                 {text : "维修计划查询与审核", attributes : {url : "PlanedMaintain/PlanCheck.jsp"}},
                 {text : "部门计划管理",
                     state : "closed",
@@ -46,9 +67,9 @@ $(function()
                                 {text : "采购部门计划管理", attributes : {url : "PlanedMaintain/PlanSubmit.jsp"}}
                     ]
                 },
-                {text : "任务会签", attributes : {url : "PlanedMaintain/PlanSubmit.jsp"}},
-                {text : "执行计划查询", attributes : {url : "PlanedMaintain/PlanSubmit.jsp"}},
-                {text : "质检单查询", attributes : {url : "PlanedMaintain/PlanSubmit.jsp"}}
+                {text : "维修实施", attributes : {url : "PlanedMaintain/PlanSubmit.jsp"}},
+                {text : "完工出库", attributes : {url : "PlanedMaintain/PlanSubmit.jsp"}},
+                {text : "项目监管", attributes : {url : "PlanedMaintain/PlanSubmit.jsp"}}
             ];
 
     $('#PlanedMaintain').tree({
@@ -62,11 +83,12 @@ $(function()
 
     var ReplacementManager=
             [
-                {text : "采购申请管理", attributes : {url : "ReplacementManager/PlanSubmit.jsp"}},
-                {text : "采购申请单审批", attributes : {url : "ReplacementManager/PlanCheck.jsp"}},
-                {text : "采购申请单立项",attributes : {url : "ReplacementManager/PlanSubmit.jsp"}},
-                {text : "采购明细入库", attributes : {url : "ReplacementManager/PlanSubmit.jsp"}},
+                {text : "备件库存查询", attributes : {url : "ReplacementManager/PlanSubmit.jsp"}},
+                {text : "采购采购申请", attributes : {url : "ReplacementManager/PlanCheck.jsp"}},
                 {text : "采购明细查询", attributes : {url : "ReplacementManager/OrderCheck.jsp"}},
+                {text : "备件采购进度查询",attributes : {url : "ReplacementManager/PlanSubmit.jsp"}},
+                {text : "采购明细入库", attributes : {url : "ReplacementManager/PlanSubmit.jsp"}},
+                {text : "维修更换备件选择", attributes : {url : "ReplacementManager/PlanSubmit.jsp"}},
                 {text : "备件库存查询", attributes : {url : "ReplacementManager/PlanSubmit.jsp"}}
             ];
     $('#ReplacementManager').tree({
@@ -218,8 +240,11 @@ function bindTabMenuEvent() {  //zjt
     <div class="easyui-panel" data-options="region:'west',split:true" style="width:180px;">
 
         <div class="easyui-accordion" fit="true" border="false">
-            <div title="系统菜单">
+            <div title="系统管理">
                 <ul id="SystemManager"></ul>
+            </div>
+            <div title="信息维护">
+                <ul id="InformationManager"></ul>
             </div>
             <div title="故障性维修维修">
                 <ul id="faultyMaintain"></ul>
