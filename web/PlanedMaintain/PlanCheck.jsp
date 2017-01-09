@@ -22,7 +22,7 @@
                 {
                     isField : "storageODR_No",
                     pagination : true,
-                    pageSize : 10,
+                    pageSize : 5,
                     pageList : [ 5, 10, 15, 20 ],
                     fit : true,
                     fitColumns : false,
@@ -81,7 +81,7 @@
                     }
                 });
         //searchInfo();
-        $('#PlanCheck').datagrid('loadData',{"total":2,"rows":[
+        $('#PlanCheck').datagrid('loadData',{"total":147,"rows":[
             {"OrderName":"大201612-001",
             "taskName":"立车大修",
             "AssetNo":"015-086",

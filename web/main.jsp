@@ -60,6 +60,24 @@ $(function()
         }
     });
 
+    var ReplacementManager=
+            [
+                {text : "采购申请管理", attributes : {url : "ReplacementManager/PlanSubmit.jsp"}},
+                {text : "采购申请单审批", attributes : {url : "ReplacementManager/PlanCheck.jsp"}},
+                {text : "采购申请单立项",attributes : {url : "ReplacementManager/PlanSubmit.jsp"}},
+                {text : "采购明细入库", attributes : {url : "ReplacementManager/PlanSubmit.jsp"}},
+                {text : "采购明细查询", attributes : {url : "ReplacementManager/OrderCheck.jsp"}},
+                {text : "备件库存查询", attributes : {url : "ReplacementManager/PlanSubmit.jsp"}}
+            ];
+    $('#ReplacementManager').tree({
+        data:ReplacementManager,
+        lines:true,
+        onClick:function (node) {
+            $(this).tree('toggle',node.target);
+            Open(node.text,node.attributes.url);
+        }
+    });
+
     function Open(text, url)
     {
         if ($("#tabs").tabs('exists', text))
