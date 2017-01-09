@@ -18,8 +18,8 @@
 </head>
 
 <body>
-    <div id="outLayout" class="easyui-layout" data-options="fit:true" style="height:100%;width:100%;padding:0px;background:#ffff;min-width:1000px;min-height:500px">
-        <div data-options="region:'north',split:true" style="height:100%;width:100%;overflow-y:hidden;">
+<div id="outLayout" class="easyui-layout" data-options="fit:true" style="width:100%;padding:0px;background:#ffff;min-width:1000px;min-height:500px">
+    <div data-options="region:'north',split:true" style="height:100%;width:100%;overflow-y:hidden;">
             <table style="font-size:12px;height:40px">
                 <tr>
                     <td align="right"><p style="font-size:12px">设备编号</p></td>
