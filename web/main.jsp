@@ -43,7 +43,6 @@ $(function()
 
     var InformationManager=
             [
-                {text : "组织机构管理", attributes : {url : "SystemManager/Organization.jsp"}},
                 {text : "信息公告栏管理", attributes : {url : "SystemManager/Organization.jsp"}},
                 {text : "设备台账维护",
                     state : "closed",
