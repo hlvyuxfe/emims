@@ -29,7 +29,8 @@ $(function()
                         {text : "删除用户", attributes : {url : "PlanedMaintain/PlanSubmit.jsp"}},
                         {text : "更新用户", attributes : {url : "PlanedMaintain/PlanSubmit.jsp"}}
                     ]
-                }
+                },
+                {text : "用户权限管理", attributes : {url : "SystemManager/Organization.jsp"}},
             ];
     $('#SystemManager').tree({
         data:SystemManagerTreeData,
@@ -44,11 +45,46 @@ $(function()
             [
                 {text : "组织机构管理", attributes : {url : "SystemManager/Organization.jsp"}},
                 {text : "信息公告栏管理", attributes : {url : "SystemManager/Organization.jsp"}},
-                {text : "设备台账维护", attributes : {url : "InformationManager/EquipmentInformation.jsp"}},
+                {text : "设备台账维护",
+                    state : "closed",
+                    children : [{text : "设备台账新建", attributes : {url : "InformationManager/EquipmentInformation.jsp"}},
+                            {text : "设备台账编辑", attributes : {url : "PlanedMaintain/PlanSubmit.jsp"}},
+                    ]
+                },
     ];
 
     $('#InformationManager').tree({
         data:InformationManager,
+        lines:true,
+        onClick:function (node) {
+            $(this).tree('toggle',node.target);
+            Open(node.text,node.attributes.url);
+        }
+    });
+
+    var FaultyMaintain=
+            [
+                {text : "故障模式维护",
+                    state : "closed",
+                    children : [{text : "故障模式录入", attributes : {url : "FaultyMaintain/PlanSubmit.jsp"}},
+                        {text : "故障模式修改", attributes : {url : "PlanedMaintain/PlanSubmit.jsp"}},
+                        {text : "故障模式删除", attributes : {url : "PlanedMaintain/PlanSubmit.jsp"}}
+                    ]
+                },
+                {text : "故障记录维护",
+                    state : "closed",
+                    children : [{text : "新建维修作业单", attributes : {url : "FaultyMaintain/PlanSubmit.jsp"}},
+                        {text : "维修记录填写", attributes : {url : "PlanedMaintain/PlanSubmit.jsp"}},
+                        {text : "维修完工确认", attributes : {url : "PlanedMaintain/PlanSubmit.jsp"}},
+                        {text : "维修记录审核", attributes : {url : "FaultyMaintain/PlanCheck.jsp"}},
+                        {text : "遗留问题解决结果", attributes : {url : "PlanedMaintain/PlanSubmit.jsp"}}
+                    ]
+                },
+                {text : "统计与报表", attributes : {url : "PlanedMaintain/PlanSubmit.jsp"}},
+                {text : "维修记录查询", attributes : {url : "PlanedMaintain/PlanSubmit.jsp"}}
+            ];
+    $('#FaultyMaintain').tree({
+        data:FaultyMaintain,
         lines:true,
         onClick:function (node) {
             $(this).tree('toggle',node.target);
@@ -69,7 +105,7 @@ $(function()
                 },
                 {text : "维修实施", attributes : {url : "PlanedMaintain/PlanSubmit.jsp"}},
                 {text : "完工出库", attributes : {url : "PlanedMaintain/PlanSubmit.jsp"}},
-                {text : "项目监管", attributes : {url : "PlanedMaintain/PlanSubmit.jsp"}}
+                {text : "质量监督", attributes : {url : "PlanedMaintain/PlanSubmit.jsp"}}
             ];
 
     $('#PlanedMaintain').tree({
@@ -84,12 +120,12 @@ $(function()
     var ReplacementManager=
             [
                 {text : "备件库存查询", attributes : {url : "ReplacementManager/PlanSubmit.jsp"}},
-                {text : "采购采购申请", attributes : {url : "ReplacementManager/PlanCheck.jsp"}},
+                {text : "备件采购申请", attributes : {url : "ReplacementManager/PlanCheck.jsp"}},
                 {text : "采购明细查询", attributes : {url : "ReplacementManager/OrderCheck.jsp"}},
                 {text : "备件采购进度查询",attributes : {url : "ReplacementManager/PlanSubmit.jsp"}},
                 {text : "采购明细入库", attributes : {url : "ReplacementManager/PlanSubmit.jsp"}},
                 {text : "维修更换备件选择", attributes : {url : "ReplacementManager/PlanSubmit.jsp"}},
-                {text : "备件库存查询", attributes : {url : "ReplacementManager/PlanSubmit.jsp"}}
+                {text : "备件使用统计", attributes : {url : "ReplacementManager/PlanSubmit.jsp"}}
             ];
     $('#ReplacementManager').tree({
         data:ReplacementManager,
@@ -246,8 +282,8 @@ function bindTabMenuEvent() {  //zjt
             <div title="信息维护">
                 <ul id="InformationManager"></ul>
             </div>
-            <div title="故障性维修维修">
-                <ul id="faultyMaintain"></ul>
+            <div title="故障性维修">
+                <ul id="FaultyMaintain"></ul>
             </div>
             <div title="计划性维修">
                 <ul id="PlanedMaintain"></ul>

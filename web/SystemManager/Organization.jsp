@@ -46,7 +46,7 @@
                             align:'center',
                         }, {
                             field : 'Equipment',
-                            title : '下属部门',
+                            title : '所属维修中心',
                             width :120,
                             align:'center',
                         }, {
