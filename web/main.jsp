@@ -43,7 +43,7 @@ $(function()
 
     var InformationManager=
             [
-                {text : "信息公告栏管理", attributes : {url : "SystemManager/Organization.jsp"}},
+                {text : "信息公告栏管理 ", attributes : {url : "SystemManager/Organization.jsp"}},
                 {text : "设备台账维护",
                     state : "closed",
                     children : [{text : "设备台账新建", attributes : {url : "InformationManager/EquipmentInformation.jsp"}},
